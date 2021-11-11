@@ -4,18 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Hike Spot</title>
 </head>
-<body>
-    <header>Header</header>
-
-    <div class="feature-a">Feature A</div>
-
-    <div class="feature-b">Feature B</div>
-
-    <header>Footer</header>
-
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="row mb-5">
+    <div class="col-12 title text-center">
+        <p class="p-4"> Hike Spot</p>
+    </div>
+</div>
+<div class="col-lg-4">
+    <div class="row">
+      <h2 class="ml-4 col-12 other-head">Where would you like to hike?</h2>
+      <div class="ml-5 mb-3 col-12">
+        <input class="the-city" placeholder="Pick a city"></input>
+        <button class="search">Search</button>
+      </div>
+      <div class="col-1">
+          <h4 class="ml-4 mt-4 col-10 third-head"> Previous Searches</h4>
+          <div class="col-1"></div>
+          <div class="ml-4 mb-3 col-10">
+              <div class="card border-0">
+                  <ul class="list-group previous-searches border-0">
+                      <button class="clear mt-1"> Clear History</button>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="card map">
+          <h1>Trail Map</h1>
+      </div>
+      <div class="card weather">
+          <h1> Current Weather </h1>
+      </div>
