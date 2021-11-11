@@ -15,3 +15,7 @@ axios.request(options).then(function (response) {
 }).catch(function (error) {
 	console.error(error);
 });
+
+// var url = https://prescriptiontrails.org/api/filter/?by=city&city=
+
+// var endpoint = &offset=0&count=6
