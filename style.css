@@ -1,0 +1,14 @@
+:root {
+    --primary: #F4A442;
+    --secondary: #E8E1D9;
+    color: var(--secondary);
+}
+
+body {
+    background-image: url(../proj-01/assets/img/maroon-bells.png);
+}
+
+#header {
+    font-size: 4.6rem;
+    text-align: center;
+}
