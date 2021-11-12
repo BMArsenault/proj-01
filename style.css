@@ -1,14 +1,36 @@
 :root {
     --primary: #F4A442;
     --secondary: #E8E1D9;
-    color: var(--secondary);
 }
 
 body {
-    background-image: url("../proj-01/assets/img/maroon.png");
+    background-image: url(/assets/img/maroon.png);
+    background-repeat: no-repeat;
+    color: var(--secondary);
+    overflow-x: hidden;
 }
 
 #header {
     font-size: 4.6rem;
     text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+.container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end space-between;
+    text-align: center;
+    display: none;
 }
