@@ -31,3 +31,6 @@
 // var endpoint = "&offset=0&count=6"
 // var queryURLhttps://prescriptiontrails.org/api/filter/?by=city&city=Albuquerque&offset=0&count=6
 // fetch()
+//(var input = document.getElementById('saveServer').value;
+//localStorage.setItem('server', input);) 
+//and to get the text back we would use (document.getElementById('saveServer').value = localStorage.getItem('server');)
