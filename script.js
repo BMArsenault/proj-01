@@ -59,4 +59,16 @@ function getCityCoordinates(data) {
     // generate map from coordinates
 };
 
+function showPrevious() {
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+    while (i--) {
+        values.push(localStorage.getItem(keys[i]));
+    };
+    for (x = 0; x < values.length; x++) {
+        $(".previous-searches").prepend("<button class='previous-search mt-1'>" + values[x] + "</button>");
+    };
+};
+
 
