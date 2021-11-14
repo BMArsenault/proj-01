@@ -1,3 +1,20 @@
+var searchEl = document.getElementById("search");
+var cityInputEl = document.getElementById("city-name");
+
+// search function
+var searchHandler = function(event) {
+    debugger;
+    event.preventDefault();
+    var cityName = cityInputEl.value.trim();
+    console.log(cityName);
+    if (cityName) {
+        saveSearch();
+        getCurrentWeather();
+        cityInputEl.value = "";
+    } else {
+        alert("Please search for a city.");
+    }
+};
 
 // fetch and display location weather
 var getCurrentWeather = function() {
@@ -25,7 +42,7 @@ var getCurrentWeather = function() {
   };
 
   function displayWeather(data) {
-    // temp,  wind, humidity,
+    // temp,  wind, humidity
     var temp = Math.round(((data.main.temp - 273.15) * 1.8) + 32);
     var wind = data.wind.speed;
     var humidity = data.main.humidity;
@@ -59,16 +76,17 @@ function getCityCoordinates(data) {
     // generate map from coordinates
 };
 
-function showPrevious() {
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
-    while (i--) {
-        values.push(localStorage.getItem(keys[i]));
+function saveSearch() {
+    var cityList = JSON.parse(localStorage.getItem("City-List"));
+    if (!cityList) {
+        savedItems.push(cityName);        
+        localStorage.setItem("City-List", JSON.stringify(savedItems));
+    } else {
+        cityList = JSON.parse(localStorage.getItem("City-List"));
+        savedItems = cityList;
+        savedItems.push(cityName);        
+        localStorage.setItem("City-List", JSON.stringify(savedItems));
     };
-    for (x = 0; x < values.length; x++) {
-        $(".previous-searches").prepend("<button class='previous-search mt-1'>" + values[x] + "</button>");
-    };
-};
+};    
 
-
+searchEl.addEventListener("submit", searchHandler);
