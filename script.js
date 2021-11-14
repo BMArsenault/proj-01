@@ -3,9 +3,23 @@
 // https://api.mapbox.com/geocoding/v5/mapbox.places/{search_text}.json
 // access token:  pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
 
-// var URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
-// var endPoint = ".json?limit=5&access_token="
-// var accessToken = "pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA"
+cityInputEl = document.querySelector("#city");
+
+
+var cityInputEl = "piestawa peak"
+
+var requestURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityInputEl}.json?limit=15&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA`;
+
+
+
+fetch(requestURL)
+    .then((res) => res.json())
+.then(function (data) {
+    console.log(data);
+    console.log(data.properties.hiking);
+});
+
+
 
 
 // var axios = require("axios").default;
@@ -25,9 +39,3 @@
 // }).catch(function (error) {
 // 	console.error(error);
 // });
-
-// var url = "https://prescriptiontrails.org/api/filter/?by=city&city=""
-
-// var endpoint = "&offset=0&count=6"
-// var queryURLhttps://prescriptiontrails.org/api/filter/?by=city&city=Albuquerque&offset=0&count=6
-// fetch()
