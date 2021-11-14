@@ -1,41 +1,22 @@
-// MapBox Api
 
-// https://api.mapbox.com/geocoding/v5/mapbox.places/{search_text}.json
-// access token:  pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
-
-cityInputEl = document.querySelector("#city");
+// cityInputEl = document.querySelector("#city");
 
 
-var cityInputEl = "piestawa peak"
+var cityInputEl = "Salt Lake City, UT"
 
-var requestURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityInputEl}.json?limit=15&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA`;
-
-
+var requestURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${cityInputEl}.json?limit=5&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true&fresh=true#14/37.2686/-112.9425`;
 
 fetch(requestURL)
     .then((res) => res.json())
-.then(function (data) {
-    console.log(data);
-    console.log(data.properties.hiking);
-});
+.then(result => console.log(requestURL))
+.catch(error => console.log('error:', error));
+
+// document.getElementById("searchbtn").addEventListener("click", searchCity);
+
+// Preview
+// https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt.html?title=view&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true&fresh=true#9.55/37.278/-112.7652
+// style URL = mapbox://styles/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt
+// Access Token = pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
 
 
-
-
-// var axios = require("axios").default;
-
-// var options = {
-//   method: 'GET',
-//   url: 'https://trailapi-trailapi.p.rapidapi.com/trails/explore/',
-//   params: {lat: '33.4484° N', lon: '112.0740° W'},
-//   headers: {
-//     'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com',
-//     'x-rapidapi-key': '84debd863fmshfa58b4e1f335a6ap154ee5jsn70f312469b28'
-//   }
-// };
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+// third party = https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt/wmts?access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
