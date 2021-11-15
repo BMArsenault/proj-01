@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
     crossorigin="anonymous">
-    <link SameSite="None;secure" href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css' type='text/css' />
     <link rel="stylesheet" href="style.css">
     <title>Hike Spot</title>
 </head>
@@ -42,6 +43,7 @@
           <div class="container-right col-8">
             <div class="card map mb-4">
                 <h1>Trail Map</h1>
+                <div id="searched-city" class="city-map"></div>
                 <div id='map' style='width: 400px; height: 300px;'></div>
                 <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=false#9.55/37.278/-112.7652" title="Outdoors" style="border:none;"></iframe>
             </div>
@@ -55,12 +57,13 @@
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA';
         const map = new mapboxgl.Map({
         container: 'map', // container ID
         center: [-74.5, 40], // starting position [lng, lat]
-        zoom: 9, // starting zoom
+        zoom: 12, // starting zoom
         style: 'mapbox://styles/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt', // style URL  if bmarsenault doesn't work, use -> mapbox://styles/mapbox/outdoors-v11
         hash: true, // sync `center`, `zoom`, `pitch`, and `bearing` with URL
         // Use `transformRequest` to modify requests that begin with `http://myHost`.
@@ -75,6 +78,16 @@
     }
     });
     </script>
+    <script>
+    const geocoder = new MapboxGeocoder({
+        // Initialize the geocoder
+        accessToken: mapboxgl.accessToken, // Set the access token
+        mapboxgl: mapboxgl, // Set the mapbox-gl instance
+        marker: false // Do not use the default marker style
+      });
+      
+      // Add the geocoder to the map
+      map.addControl(geocoder);</script>
     <script src="script.js"></script>
 </body>
 </html>
