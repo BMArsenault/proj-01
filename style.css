@@ -4,8 +4,9 @@
 }
 
 body {
-    background-image: url(/assets/maroon.png);
-    background-size: inherit;
+    background-image: url(./assets/img/maroon.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--secondary);
     overflow-x: hidden;
 }
@@ -26,7 +27,7 @@ body {
     flex-wrap: nowrap;
 }
 
-.container-left {
+/* .container-left {
     display: inline-block;
     flex-direction: column;
     justify-content: flex-start;
@@ -40,4 +41,4 @@ body {
     flex-direction: column;
     justify-content: flex-end space-between;
     text-align: center;
-}
+} */

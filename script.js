@@ -53,14 +53,16 @@
 var searchEl = document.getElementById("search");
 var cityInputEl = document.getElementById("city-name");
 
+// var weatherDiv = document.getElementById("weather-div")
+// weatherDiv.hide();
+
 // search function
 var searchHandler = function(event) {
-    debugger;
     event.preventDefault();
     var cityName = cityInputEl.value.trim();
     console.log(cityName);
     if (cityName) {
-        saveSearch();
+        // saveSearch();
         getCurrentWeather();
         cityInputEl.value = "";
     } else {
@@ -103,13 +105,13 @@ var getCurrentWeather = function() {
     console.log(humidity);
     
     var tempEl = document.getElementById("temp");
-    tempEl.innerHTML = temp;
+    tempEl.innerHTML = "Temperature: " + temp + "°F";
 
     var windEl = document.getElementById("wind");
-    windEl.innerHTML = wind;
+    windEl.innerHTML = "Wind: " + wind + " mph";
 
     var humidityEl = document.getElementById("humidity");
-    humidityEl.innerHTML = humidity;
+    humidityEl.innerHTML = "Humidity: " + humidity + "%";
 
     var cityNameEl = document.getElementById("search-term");
     cityNameEl.innerHTML = data.name + ", " + data.sys.country;
@@ -128,18 +130,18 @@ function getCityCoordinates(data) {
     // generate map from coordinates
 };
 
-function saveSearch() {
-    var cityList = JSON.parse(localStorage.getItem("City-List"));
-    if (!cityList) {
-        savedItems.push(cityName);        
-        localStorage.setItem("City-List", JSON.stringify(savedItems));
-    } else {
-        cityList = JSON.parse(localStorage.getItem("City-List"));
-        savedItems = cityList;
-        savedItems.push(cityName);        
-        localStorage.setItem("City-List", JSON.stringify(savedItems));
-    };
-};    
+// function saveSearch() {
+//     var cityList = JSON.parse(localStorage.getItem("City-List"));
+//     if (!cityList) {
+//         savedItems.push(cityName);        
+//         localStorage.setItem("City-List", JSON.stringify(savedItems));
+//     } else {
+//         cityList = JSON.parse(localStorage.getItem("City-List"));
+//         savedItems = cityList;
+//         savedItems.push(cityName);        
+//         localStorage.setItem("City-List", JSON.stringify(savedItems));
+//     };
+// };    
 
 searchEl.addEventListener("submit", searchHandler);
 

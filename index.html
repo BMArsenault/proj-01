@@ -18,32 +18,30 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="container-left col-4">
-                <h2 class="ml-4 other-head">Where would you like to hike?</h2>
-                <div class="ml-5 mb-3" id="search">
+            <div class="container-left col-md-4">
+                <h2 class="ml-4 other-head">Pick a hike spot:</h2>
+                <!-- <div class="ml-5 mb-3" id="search">
                     <input type="text" id="city-name" autofocus="true" class="form-input" />
                     <button type="submit" value="Search" id="search-btn">Search</button>
-                </div>
-      
-                <div class="container mt-3">
-                    <h4 class="third-head">Previous Searches</h4>
-                    <div class="history"></div>
-                    <div class="history-list">
-                        <div class="card border">
-                            <ul class="list-group previous-searches border">
-                                <button class="clear">Clear History</button>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div> -->
+                <form class="ml-5 mb-3" id="search">
+                    <input type="text" id="city-name" autofocus="true" class="form-input" />
+                    <button type="submit" value="Search" id="search-btn">Search</button>
+                </form>
 
-          <div class="container-right col-8">
-            <div class="card map mb-4">
+                <div class="card weather" id="weather-div">
+                    <h1><span id="search-term"></span></h1>
+                    <div id="weather-info">
+                        <p><span id="temp"></span></p>
+                        <p><span id="wind"></span></p>
+                        <p><span id="humidity"></span></p>
+                    </div>
+                </div>   
+            </div>   
+                
+
+            <div class="container-right col-md-8 offset-md-3">
                 <div class="card map mb-4">
-                    </div>
-                        <div id="cityMap">
-                    </div>
                     <div>
                         <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=33.566633454542725~-112.04919870322442&lvl=12&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
                         </iframe>
@@ -53,19 +51,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card weather">
-                <h1><span id="search-term"></span></h1>
-                <div id="weather-info">
-                    <p><span id="temp"></span></p>
-                    <p><span id="wind"></span></p>
-                    <p><span id="humidity"></span></p>
-                </div>
-            </div>
-            <div class="container-right col-8">
-    
-          </div>
-        </div> 
+            </div> 
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
