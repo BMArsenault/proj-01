@@ -1,36 +1,90 @@
-// MapBox Api
-
-// https://api.mapbox.com/geocoding/v5/mapbox.places/{search_text}.json
-// access token:  pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
-
-// var URL = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
-// var endPoint = ".json?limit=5&access_token="
-// var accessToken = "pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA"
+var searches = [];
+var savedList = document.getElementById("#history");
+var currentCity = document.getElementById("#searched-city");
 
 
-// var axios = require("axios").default;
+const url = 'http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=${query}&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl';
+function fetchCity(city) {
+    
+    var baseUrl = "http://dev.virtualearth.net/REST/v1/Locations?q=";
+    var endPoint = "&output=xml&key=";
+    var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl";
+    var url = baseUrl + city + endPoint + apiKey;
 
-// var options = {
-//   method: 'GET',
-//   url: 'https://trailapi-trailapi.p.rapidapi.com/trails/explore/',
-//   params: {lat: '33.4484° N', lon: '112.0740° W'},
-//   headers: {
-//     'x-rapidapi-host': 'trailapi-trailapi.p.rapidapi.com',
-//     'x-rapidapi-key': '84debd863fmshfa58b4e1f335a6ap154ee5jsn70f312469b28'
-//   }
-// };
+    fetch(url)
+    .then(response => response.json())
+    .then((renderSearchResults) => {
+        console.log(renderSearchResults)
+}
 
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+// function renderSearchResults(result) {
 
-// var url = "https://prescriptiontrails.org/api/filter/?by=city&city=""
+//     currentCity.innerHTML = ""
 
-// var endpoint = "&offset=0&count=6"
-// var queryURLhttps://prescriptiontrails.org/api/filter/?by=city&city=Albuquerque&offset=0&count=6
-// fetch()
-//(var input = document.getElementById('saveServer').value;
-//localStorage.setItem('server', input);) 
-//and to get the text back we would use (document.getElementById('saveServer').value = localStorage.getItem('server');)
+//     var myMap = document.getElementById("cityMap")
+//     var iframe = document.createElement("iframe")
+//     iframe.classList("map")
+//     iframe.setAttribute("src", "http://dev.virtualearth.net/REST/v1/Locations?q=${parameter}&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl")
+//     iframe.appendChild(myMap)
+
+// }
+
+
+
+// // add eventlistener to button
+const button = document.getElementById("searchbtn");
+
+button.addEventListener("click", savedCity);
+
+
+//  store and get city to and from localStorage
+function getCity() {
+    return localStorage.getItem("searchedCity")
+}
+
+function savedCity() {
+    var city = document.getElementById("searched-city").value;
+
+    localStorage.setItem("searchCity", city);
+    // console.log("Clicked Button");
+}
+
+
+
+
+
+// national park maps
+// var baseUrl = "https://developer.nps.gov/";
+// var endPoint = "api/v1/parks";
+// var apiKey = "o1FOO1q63Y41fwWArlMIJN1hREzMFioFeTTpACSt";
+
+
+
+
+
+
+
+
+
+
+//  create a list with searched cities
+
+// Have map post for the city we just searched
+// Create iframe and post into HTML
+
+// save to input to localStorage to grab for weather and map
+// var input = document.getElementById('saveServer').value;
+// localStorage.setItem('server', input);
+
+//and to get the text back we would use
+//(document.getElementById('saveServer').value = localStorage.getItem('server');)
+
+
+
+// bing maps
+// var url = "http://dev.virtualearth.net/REST/v1/Locations?q="
+// parameter = city searched
+// var endPoint = "&output=xml&key=""
+// var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl"
+// http://dev.virtualearth.net/REST/v1/Locations?q=seattle&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl
+
