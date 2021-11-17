@@ -163,6 +163,13 @@ searchEl.addEventListener("submit", searchHandler);
 //(document.getElementById('saveServer').value = localStorage.getItem('server');)
 
 
+// https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=view&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true&fresh=true#5.13/37.9/-97.28
+// <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=false#5.13/37.9/-97.28" title="Outdoors" style="border:none;"></iframe>
+// mapbox://styles/bmarsenault/ckw34glfm2bug14rxhvtvqzn4
+// apiKey = pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
+// https://api.mapbox.com/geocoding/v5/mapbox.places/San%20Francisco.json?access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
+
+
 
 // map api
 
