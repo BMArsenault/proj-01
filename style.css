@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url(/assets/img/maroon.png);
+    background-image: url(/assets/maroon.png);
     background-size: inherit;
     color: var(--secondary);
     overflow-x: hidden;
