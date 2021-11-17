@@ -1,54 +1,41 @@
-// var searches = [];
-// var savedList = document.getElementById("#history");
-// var currentCity = document.getElementById("#searched-city");
+var searches = [];
+var currentCity = document.getElementById("#searched-city");
 
 
-// function fetchCity(city) {
+function fetchCity(cityName) {
     
-//     var baseUrl = "http://dev.virtualearth.net/REST/v1/Locations?q=";
-//     var endPoint = "&output=xml&key=";
-//     var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl";
-//     var url = baseUrl + city + endPoint + apiKey;
+    // var baseUrl = `http://dev.virtualearth.net/REST/v1/Locations?q=${cityName}`;
+    // var endPoint = "&output=xml&key=";
+    // var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl";
+    // var url = baseUrl + cityName + endPoint + apiKey;
 
-//     fetch(url)
-//     .then(response => response.json())
-//     .then((renderSearchResults) => {
-//         console.log(renderSearchResults)
-//     });
-// }
+    // fetch(url)
+    // .then(function(response) {
+    // var cityUrl = response.url
+    // renderSearchResults(cityUrl)
+    // })
+   
+}
+    // .then(response =>
+    //   console.log(response.json())
+    // .then((results) => {
+    //     console.log(results)
+      
 
 
-// function renderSearchResults(result) {
+function renderSearchResults(data) {
 
-//     currentCity.innerHTML = ""
-
-//     var myMap = document.getElementById("cityMap")
+    console.log(data)
+    var longitude = data.coord.lon;
+    var latitude = data.coord.lat;
+    var myMap = document.getElementById("iframe-id")
 //     var iframe = document.createElement("iframe")
-//     iframe.classList("map")
-//     iframe.setAttribute("src", "http://dev.virtualearth.net/REST/v1/Locations?q=${parameter}&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl")
-//     iframe.appendChild(myMap)
+//     // iframe.addClassList("map")
+    myMap.setAttribute("src", `https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=false#5.13/${latitude}/${longitude}`)
+//     // iframe.appendChild(myMap)
 
-// }
+}
 
-
-
-// // add eventlistener to button
-// const button = document.getElementById("searchbtn");
-
-// button.addEventListener("click", savedCity);
-
-
-// //  store and get city to and from localStorage
-// function getCity() {
-//     return localStorage.getItem("searchedCity")
-// }
-
-// function savedCity() {
-//     var city = document.getElementById("searched-city").value;
-
-//     localStorage.setItem("searchCity", city);
-//     // console.log("Clicked Button");
-// };
 
 var searchEl = document.getElementById("search");
 var cityInputEl = document.getElementById("city-name");
@@ -66,6 +53,7 @@ var searchHandler = function(event) {
     if (cityName) {
         // saveSearch();
         getCurrentWeather();
+        fetchCity(cityName);
         document.getElementById("weather-div").style.display = "block";
         cityInputEl.value = "";
     } else {
@@ -88,6 +76,7 @@ var getCurrentWeather = function() {
             console.log(data);
             displayWeather(data)
             getCityCoordinates(data);
+            renderSearchResults(data);
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -133,6 +122,47 @@ function getCityCoordinates(data) {
     // generate map from coordinates
 };
 
+
+searchEl.addEventListener("submit", searchHandler);
+
+
+
+
+
+
+
+
+
+//_________________ Graveyard (Api Keys/Old functions)
+
+
+
+// let map;
+
+// function initMap() {
+//   const localContextMapView = new google.maps.localContext.LocalContextMapView({
+//     element: document.getElementById("map"),
+//     placeTypePreferences: [
+//       { type: "restaurant" },
+//       { type: "tourist_attraction" },
+//     ],
+//     maxPlaceCount: 12,
+//   });
+
+//   map = localContextMapView.map;
+//   map.setOptions({
+//     center: { lat: 51.507307, lng: -0.08114 },
+//     zoom: 14,
+//   });
+//   console.log(map)
+// }
+
+// Show places now.
+// localContextMapView.maxPlaceCount = 12;
+
+// initMap();
+
+
 // function saveSearch() {
 //     var cityList = JSON.parse(localStorage.getItem("City-List"));
 //     if (!cityList) {
@@ -146,10 +176,24 @@ function getCityCoordinates(data) {
 //     };
 // };    
 
-searchEl.addEventListener("submit", searchHandler);
+
+// // add eventlistener to button
+// const button = document.getElementById("searchbtn");
+
+// button.addEventListener("click", savedCity);
 
 
+// //  store and get city to and from localStorage
+// function getCity() {
+//     return localStorage.getItem("searchedCity")
+// }
 
+// function savedCity() {
+//     var city = document.getElementById("searched-city").value;
+
+//     localStorage.setItem("searchCity", city);
+//     // console.log("Clicked Button");
+// };
 
 
 // const url = 'http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=${query}&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl';
@@ -170,7 +214,6 @@ searchEl.addEventListener("submit", searchHandler);
 // https://api.mapbox.com/geocoding/v5/mapbox.places/San%20Francisco.json?access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
 
 
-
 // map api
 
 // bing maps
@@ -180,7 +223,3 @@ searchEl.addEventListener("submit", searchHandler);
 // var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl"
 // http://dev.virtualearth.net/REST/v1/Locations?q=seattle&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl
 
-// national park maps
-// var baseUrl = "https://developer.nps.gov/";
-// var endPoint = "api/v1/parks";
-// var apiKey = "o1FOO1q63Y41fwWArlMIJN1hREzMFioFeTTpACSt";
