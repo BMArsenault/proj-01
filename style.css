@@ -1,18 +1,35 @@
 :root {
     --primary: #F4A442;
-    --secondary: #E8E1D9;
+    --secondary: #f5f3f0;
 }
 
 body {
-    background-image: url(/assets/img/maroon.png);
-    background-size: inherit;
+    background-image: url(./assets/img/maroon.png);
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--secondary);
     overflow-x: hidden;
 }
 
 #header {
     font-size: 4.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     text-align: center;
+}
+
+.other-head {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+#search-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #460f3e;
+    background-color: var(--secondary);
+    margin-top: 10px;
+
 }
 
 .container {
@@ -26,18 +43,12 @@ body {
     flex-wrap: nowrap;
 }
 
-.container-left {
-    display: inline-block;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-align: center;
-    flex-wrap: nowrap;
-    margin: 2rem;
+#weather-div {
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #460f3e;
 }
 
-.container-right {
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: flex-end space-between;
-    text-align: center;
+#map {
+    margin-top: 20px;
 }

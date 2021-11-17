@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,58 +11,52 @@
     <title>Hike Spot</title>
 </head>
 <body>
-    <header id="header" class="row mb-2 container-text ">
+    <header id="header" class="row mb-2">
         <div class="col-12 title text-center">
             <p class="text">Hike Spot</p>
         </div>
     </header>
     <div class="container">
         <div class="row">
-            <div class="container-left col-4">
-                <h2 class="ml-4 other-head">Where would you like to hike?</h2>
-                <div class="ml-5 mb-3">
-                  <input id="searched-city" class="the-city" placeholder="Pick a city"></input>
-                  <button id="searchbtn" class="btn btn-success search">Search</button>
-                </div>
-      
-                <div class="container mt-3">
-                    <h4 class="third-head">Previous Searches</h4>
-                    <div class="history"></div>
-                    <div class="history-list">
-                        <div class="card border">
-                            <ul class="list-group previous-searches border">
-                                <button id="clearbtn" class="clear">Clear History</button>
-                            </ul>
+            <div class="container-left col-md-4">
+                <h2 class="ml-4 other-head">Pick a hike spot:</h2>
+                <!-- <div class="ml-5 mb-3" id="search">
+                    <input type="text" id="city-name" autofocus="true" class="form-input" />
+                    <button type="submit" value="Search" id="search-btn">Search</button>
+                </div> -->
+                <form class="ml-5 mb-3" id="search">
+                    <input type="text" id="city-name" autofocus="true" class="form-input" />
+                    <button type="submit" value="Search" id="search-btn">Search</button>
+                </form>
+
+                <div class="card weather" id="weather-div">
+                    <h4><span id="search-term"></span></h4>
+                    <div id="weather-info">
+                        <br>
+                        <p><span id="temp"></span></p>
+                        <p><span id="wind"></span></p>
+                        <p><span id="humidity"></span></p>
+                    </div>
+                </div>   
+            </div>   
+                
+
+            <div class="container-right col-md-8 offset-md-3">
+                <div class="card map mb-4" id="map">
+                    <div>
+                        <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=33.566633454542725~-112.04919870322442&lvl=12&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                        </iframe>
+                        <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
+                           <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=33.566633454542725~-112.04919870322442&amp;sty=r&amp;lvl=12&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
+                           <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=33.566633454542725~-112.04919870322442&amp;sty=r&amp;lvl=12&amp;rtp=~pos.33.566633454542725_-112.04919870322442____&amp;FORM=MBEDLD">Get Directions</a>
                         </div>
                     </div>
                 </div>
-                <div class="card weather">
-                    <h3>Weather</h3>
-                </div>
-            </div>
-
-            <div class="container-right col-8">
-                <div class="card map mb-4">
-                <h3>Trail Map</h3>
-                </div>
-                <div id="cityMap">
-                </div>
-                <div>
-                    <iframe width="500" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp=33.566633454542725~-112.04919870322442&lvl=12&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
-                    </iframe>
-                    <div style="white-space: nowrap; text-align: center; width: 500px; padding: 6px 0;">
-                       <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=33.566633454542725~-112.04919870322442&amp;sty=r&amp;lvl=12&amp;FORM=MBEDLD">View Larger Map</a> &nbsp; | &nbsp;
-                       <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=33.566633454542725~-112.04919870322442&amp;sty=r&amp;lvl=12&amp;rtp=~pos.33.566633454542725_-112.04919870322442____&amp;FORM=MBEDLD">Get Directions</a>
-                    </div>
-                </div>
-            </div>
-        </div> 
+            </div> 
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
