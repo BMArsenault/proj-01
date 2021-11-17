@@ -1,35 +1,21 @@
-// var searches = [];
-// var savedList = document.getElementById("#history");
-// var currentCity = document.getElementById("#searched-city");
+var searches = [];
+var savedList = document.getElementById("#history");
+var currentCity = document.getElementById("#searched-city");
 
 
-fetch("http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=seattle&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl")
-.then((response) => {
-    console.log("We got response");
-    console.log(response);
-    return response.json();
-})
-.then((jsonData) => {
-    console.log("We got our data");
-    console.log(jsonData)
-});
-
-// function fetchCity(city) {
+const url = 'http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=${query}&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl';
+function fetchCity(city) {
     
-//     var baseUrl = "http://dev.virtualearth.net/REST/v1/Locations?q=";
-//     var endPoint = "&output=xml&key=";
-//     var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl";
-//     var url = baseUrl + ${city} + endPoint + apiKey;
+    var baseUrl = "http://dev.virtualearth.net/REST/v1/Locations?q=";
+    var endPoint = "&output=xml&key=";
+    var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl";
+    var url = baseUrl + city + endPoint + apiKey;
 
-//     fetch(url)
-//     .then(response => response.json());
-        
-//     })
-//     .then(renderSearchResults) => {
-//         console.log("We got our data")
-//         console.log(renderSearchResults)
-// }
-// }
+    fetch(url)
+    .then(response => response.json())
+    .then((renderSearchResults) => {
+        console.log(renderSearchResults)
+}
 
 // function renderSearchResults(result) {
 
@@ -45,36 +31,32 @@ fetch("http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=seattle&
 
 
 
-
-
-
-
-
-
-
 // // add eventlistener to button
-// const button = document.getElementById("searchbtn");
+const button = document.getElementById("searchbtn");
 
-// button.addEventListener("click", savedCity);
-
-
-// //  store and get city to and from localStorage
-// function getCity() {
-//     return localStorage.getItem("searchedCity")
-// }
-
-// function savedCity() {
-//     var city = document.getElementById("searched-city").value;
-
-//     localStorage.setItem("searchCity", city);
-//     // console.log("Clicked Button");
-// }
+button.addEventListener("click", savedCity);
 
 
+//  store and get city to and from localStorage
+function getCity() {
+    return localStorage.getItem("searchedCity")
+}
+
+function savedCity() {
+    var city = document.getElementById("searched-city").value;
+
+    localStorage.setItem("searchCity", city);
+    // console.log("Clicked Button");
+}
 
 
 
 
+
+// national park maps
+// var baseUrl = "https://developer.nps.gov/";
+// var endPoint = "api/v1/parks";
+// var apiKey = "o1FOO1q63Y41fwWArlMIJN1hREzMFioFeTTpACSt";
 
 
 
@@ -106,19 +88,3 @@ fetch("http://dev.virtualearth.net/REST/v1/LocalSearch/?query=Locations=seattle&
 // var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl"
 // http://dev.virtualearth.net/REST/v1/Locations?q=seattle&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl
 
-//           Graveyard
-//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// national park maps
-// var baseUrl = "https://developer.nps.gov/";
-// var endPoint = "api/v1/parks";
-// var apiKey = "o1FOO1q63Y41fwWArlMIJN1hREzMFioFeTTpACSt";
-
-
-// mapbox maps
-// "https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt/wmts?access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA"
-// Map styled for hiking 
-// full styleUrl = https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt.html?title=view&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true&fresh=true#9.55/33.4484/112.0740
-// style URL = mapbox://styles/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt
-// Access Token = pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA
-// Url w/ lat and long = https://api.mapbox.com/styles/v1/bmarsenault/ckvz3cc8717zt15rzmqhb1yxt/wmts?access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA"
