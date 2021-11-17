@@ -1,6 +1,6 @@
 :root {
     --primary: #F4A442;
-    --secondary: #E8E1D9;
+    --secondary: #f5f3f0;
 }
 
 body {
@@ -13,7 +13,23 @@ body {
 
 #header {
     font-size: 4.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     text-align: center;
+}
+
+.other-head {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+#search-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #460f3e;
+    background-color: var(--secondary);
+    margin-top: 10px;
+
 }
 
 .container {
@@ -25,6 +41,16 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+
+#weather-div {
+    padding: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #460f3e;
+}
+
+#map {
+    margin-top: 20px;
 }
 
 /* .container-left {

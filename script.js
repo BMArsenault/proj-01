@@ -56,6 +56,8 @@ var cityInputEl = document.getElementById("city-name");
 // var weatherDiv = document.getElementById("weather-div")
 // weatherDiv.hide();
 
+document.getElementById("weather-div").style.display = "none";
+
 // search function
 var searchHandler = function(event) {
     event.preventDefault();
@@ -64,6 +66,7 @@ var searchHandler = function(event) {
     if (cityName) {
         // saveSearch();
         getCurrentWeather();
+        document.getElementById("weather-div").style.display = "block";
         cityInputEl.value = "";
     } else {
         alert("Please search for a city.");
