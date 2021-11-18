@@ -31,7 +31,7 @@ function renderSearchResults(data) {
     var myMap = document.getElementById("iframe-id")
 //     var iframe = document.createElement("iframe")
 //     // iframe.addClassList("map")
-    myMap.setAttribute("src", `https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true#5.13/${latitude}/${longitude}`)
+    myMap.setAttribute("src", `https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true#10.13/${latitude}/${longitude}`)
 //     // iframe.appendChild(myMap)
 
 }
