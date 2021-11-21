@@ -3,6 +3,7 @@
     --secondary: #f5f3f0;
 }
 
+
 body {
     background-image: url(./assets/img/maroon.png);
     background-size: cover;
@@ -24,6 +25,10 @@ body {
     margin-top: 20px;
 }
 
+.container-left {
+    margin-left: 30px;
+}
+
 #search-btn {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #460f3e;
@@ -35,23 +40,29 @@ body {
 .container {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+
 }
 
 .row {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+   
 }
 
 #weather-div {
     padding: 10px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #460f3e;
+    
 }
 
-#map {
-    margin-top: 20px;
+#map, #playlist {
+   margin: 20px 20px;
 }
+
+
 
 
 

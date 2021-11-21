@@ -1,3 +1,6 @@
+
+
+
 var searches = [];
 var currentCity = document.getElementById("#searched-city");
 
@@ -120,10 +123,6 @@ var getCurrentWeather = function() {
         return;
     };
 
-    getPlaylist(data);
-
-    function getPlaylist(data) {
-
     if (condition === "Clear") {
 
     var playlist = document.getElementById("playlist");
@@ -131,7 +130,7 @@ var getCurrentWeather = function() {
     iframe.style.display = "block";
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
     iframe.width="100%" 
-    iframe.height="380" 
+    iframe.height="400" 
     iframe.frameBorder="0" 
     iframe.allowfullscreen="" 
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -143,7 +142,7 @@ var getCurrentWeather = function() {
     var iframe = document.createElement('iframe');
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DWYoDXiQsd3D2?utm_source=generator" 
     iframe.width="100%" 
-    iframe.height="380" 
+    iframe.height="400" 
     iframe.frameBorder="0" 
     iframe.allowfullscreen="" 
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -155,7 +154,7 @@ var getCurrentWeather = function() {
     var iframe = document.createElement('iframe');
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXbvABJXBIyiY?utm_source=generator" 
     iframe.width="100%" 
-    iframe.height="380" 
+    iframe.height="400" 
     iframe.frameBorder="0" 
     iframe.allowfullscreen="" 
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -167,7 +166,7 @@ var getCurrentWeather = function() {
     var iframe = document.createElement('iframe');
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
     iframe.width="100%" 
-    iframe.height="380" 
+    iframe.height="400" 
     iframe.frameBorder="0" 
     iframe.allowfullscreen="" 
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -179,14 +178,13 @@ var getCurrentWeather = function() {
     var iframe = document.createElement('iframe');
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXdxcBWuJkbcy?utm_source=generator" 
     iframe.width="100%" 
-    iframe.height="380" 
+    iframe.height="400" 
     iframe.frameBorder="0" 
     iframe.allowfullscreen="" 
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     playlist.appendChild(iframe);
 
     }
-  };
 };
 
 searchEl.addEventListener("submit", searchHandler);
