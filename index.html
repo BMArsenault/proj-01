@@ -28,15 +28,15 @@
     <div class="text-body container">
         <div class="row">
             <h2 class="col-4 other-head">Pick a hike spot:</h2>
-                <form class="ml-5 mb-3" id="search">
+                <form id="search">
                     <input type="text" id="city-name" class="form-input" />
                     <button type="submit" value="Search" id="search-btn">Search</button>
                 </form>
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-around">
-            <div class="card weather col-6" id="weather-div">
+        <div class="row justify-content-end">
+            <div class="card weather col" id="weather-div">
                 <h4><span id="search-term"></span></h4>
                     <div id="weather-info">
                         <br>
@@ -47,15 +47,15 @@
                     </div>
             </div> 
 
-            <div id="playlist" class="col-6">
+            <div id="playlist" class="col">
             </div>
 
         </div> 
     </div>    
     
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="card col-12" id="map">
+        <div class="row">
+            <div class="card col" id="map">
                 <div>
                     <iframe id="iframe-id" width='600px' height='500px' src="https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true#5.13/37.9/-97.28" title="Outdoors" style="border:none;"></iframe>
                 </div>
