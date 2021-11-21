@@ -70,8 +70,8 @@ header nav ul li a {
     margin-top: 20px;
 }
 
-.container-left {
-    margin-left: 30px;
+.weather {
+    background-color: lightgray;
 }
 
 #search-btn {

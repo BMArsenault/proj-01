@@ -12,34 +12,32 @@
 </head>
 <body>
     <header id="header" class="row">
-            <h1 class="text title">Hike Spot</h1>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="#container">Search</a>
-                        </li>
-                    </ul>
-                </nav>
+        <h1 class="text title">Hike Spot</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#container">Search</a>
+                    </li>
+                </ul>
+            </nav>
     </header>
     
     <section class="hero">
         <p class="story">Looking for a great place to hike?  We've got you covered!</p>
     </section>
-    <div class="container">
+    <div class="text-body container">
         <div class="row">
-            <div class="container-left col-md-4">
-                <h2 class="ml-4 other-head">Pick a hike spot:</h2>
-                <!-- <div class="ml-5 mb-3" id="search">
-                    <input type="text" id="city-name" autofocus="true" class="form-input" />
-                    <button type="submit" value="Search" id="search-btn">Search</button>
-                </div> -->
+            <h2 class="col-4 other-head">Pick a hike spot:</h2>
                 <form class="ml-5 mb-3" id="search">
-                    <input type="text" id="city-name" autofocus="true" class="form-input" />
+                    <input type="text" id="city-name" class="form-input" />
                     <button type="submit" value="Search" id="search-btn">Search</button>
                 </form>
-
-                <div class="card weather" id="weather-div">
-                    <h4><span id="search-term"></span></h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="card weather col-6" id="weather-div">
+                <h4><span id="search-term"></span></h4>
                     <div id="weather-info">
                         <br>
                         <p><span id="condition"></span></p>
@@ -47,23 +45,24 @@
                         <p><span id="wind"></span></p>
                         <p><span id="humidity"></span></p>
                     </div>
-                </div> 
-                
-
-            </div>   
-            
-            <div class="container-right col-md-6">
-                <div class="card mb-4" id="map">
-                    <div>
-                        <iframe id="iframe-id" width='100%' height='400px' src="https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true#5.13/37.9/-97.28" title="Outdoors" style="border:none;"></iframe>
-                    </div>
-                </div>
             </div> 
 
-            <div id="playlist" class="container-right col-md-4">
+            <div id="playlist" class="col-6">
             </div>
-        </div>
+
+        </div> 
+    </div>    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card col-12" id="map">
+                <div>
+                    <iframe id="iframe-id" width='600px' height='500px' src="https://api.mapbox.com/styles/v1/bmarsenault/ckw34glfm2bug14rxhvtvqzn4.html?title=false&access_token=pk.eyJ1IjoiYm1hcnNlbmF1bHQiLCJhIjoiY2t2dmlqNTd3NmUzdDMxczE3eDZhbWZ6cSJ9.Xdpp-ALevFxYRQnHx5BwhA&zoomwheel=true#5.13/37.9/-97.28" title="Outdoors" style="border:none;"></iframe>
+                </div>
+            </div>
+        </div> 
     </div>
+
 
 <footer>
     <div>
