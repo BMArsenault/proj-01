@@ -77,9 +77,21 @@ var getCurrentWeather = function() {
           console.log(response);
           response.json().then(function(data) {
             console.log(data);
-            displayWeather(data)
+            removePlaylist();
             getCityCoordinates(data);
             renderSearchResults(data);
+
+            function removePlaylist() {
+            var playlist = document.getElementById("playlist");
+            var iframe = document.getElementById("iframe");
+            if (iframe !== null) {
+              iframe.remove();
+              displayWeather(data);
+            } else {
+              console.log("No playlist")
+              displayWeather(data);
+              };
+            };
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -89,6 +101,8 @@ var getCurrentWeather = function() {
         alert('Unable to connect to OpenWeather.');
       });
   };
+
+  
 
   function displayWeather(data) {
     // temp,  wind, humidity
@@ -123,11 +137,16 @@ var getCurrentWeather = function() {
         return;
     };
 
-    if (condition === "Clear") {
 
+    displayPlaylist();
+  
+    function displayPlaylist() {   
+    
     var playlist = document.getElementById("playlist");
     var iframe = document.createElement('iframe');
-    iframe.style.display = "block";
+    
+    if (condition === "Clear") {
+    iframe.id = "iframe" 
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
     iframe.width="100%" 
     iframe.height="400" 
@@ -138,8 +157,7 @@ var getCurrentWeather = function() {
 
     } else if (condition === "Clouds") {
     
-    var playlist = document.getElementById("playlist");
-    var iframe = document.createElement('iframe');
+    iframe.id = "iframe"
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DWYoDXiQsd3D2?utm_source=generator" 
     iframe.width="100%" 
     iframe.height="400" 
@@ -150,8 +168,7 @@ var getCurrentWeather = function() {
 
     } else if (condition === "Rain") {
     
-    var playlist = document.getElementById("playlist");
-    var iframe = document.createElement('iframe');
+    iframe.id = "iframe"
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXbvABJXBIyiY?utm_source=generator" 
     iframe.width="100%" 
     iframe.height="400" 
@@ -162,8 +179,7 @@ var getCurrentWeather = function() {
 
     } else if (condition === "Snow") {
     
-    var playlist = document.getElementById("playlist");
-    var iframe = document.createElement('iframe');
+    iframe.id = "iframe"
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
     iframe.width="100%" 
     iframe.height="400" 
@@ -174,8 +190,7 @@ var getCurrentWeather = function() {
 
     } else {
     
-    var playlist = document.getElementById("playlist");
-    var iframe = document.createElement('iframe');
+    iframe.id = "iframe"
     iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXdxcBWuJkbcy?utm_source=generator" 
     iframe.width="100%" 
     iframe.height="400" 
@@ -185,6 +200,7 @@ var getCurrentWeather = function() {
     playlist.appendChild(iframe);
 
     }
+  };
 };
 
 searchEl.addEventListener("submit", searchHandler);
