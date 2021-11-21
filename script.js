@@ -89,15 +89,20 @@ var getCurrentWeather = function() {
 
   function displayWeather(data) {
     // temp,  wind, humidity
+    // convert from K to F
     var temp = Math.round(((data.main.temp - 273.15) * 1.8) + 32);
-    var wind = data.wind.speed;
+    // convert from m/s to mph
+    var wind = data.wind.speed * 2.237;
     var humidity = data.main.humidity;
-    var condition = data.weather.main;
+    var condition = data.weather[0].main;
     console.log(temp);
     console.log(wind);
     console.log(humidity);
     console.log(condition);
     
+    var tempEl = document.getElementById("condition");
+    tempEl.innerHTML = condition;
+
     var tempEl = document.getElementById("temp");
     tempEl.innerHTML = "Temperature: " + temp + "°F";
 
@@ -115,6 +120,8 @@ var getCurrentWeather = function() {
         return;
     };
 
+    if (condition === "Clear") {
+
     var playlist = document.getElementById("playlist");
     var iframe = document.createElement('iframe');
     iframe.style.display = "block";
@@ -126,6 +133,55 @@ var getCurrentWeather = function() {
     iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
     playlist.appendChild(iframe);
 
+    } else if (condition === "Clouds") {
+    
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DWYoDXiQsd3D2?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="380" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else if (condition === "Rain") {
+    
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXbvABJXBIyiY?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="380" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else if (condition === "Snow") {
+    
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="380" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else {
+    
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXdxcBWuJkbcy?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="380" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    }
 };
 
 searchEl.addEventListener("submit", searchHandler);
