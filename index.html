@@ -13,13 +13,6 @@
 <body>
     <header id="header" class="row">
         <h1 class="text title">Hike Spot</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#container">Search</a>
-                    </li>
-                </ul>
-            </nav>
     </header>
     
     <section class="hero">
@@ -27,15 +20,15 @@
     </section>
     <div class="text-body container">
         <div class="row">
-            <h2 class="col-4 other-head">Pick a hike spot:</h2>
-                <form id="search">
+            <h2 class="col-4 mb-4 other-head">Pick a hike spot:</h2>
+                <form id="search" class="mb-4">
                     <input type="text" id="city-name" class="form-input" />
                     <button type="submit" value="Search" id="search-btn">Search</button>
                 </form>
         </div>
     </div>
     <div class="container">
-        <div class="row justify-content-end">
+        <div class="row justify-content-between">
             <div class="card weather col" id="weather-div">
                 <h4><span id="search-term"></span></h4>
                     <div id="weather-info">
