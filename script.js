@@ -92,7 +92,7 @@ var getCurrentWeather = function() {
     // convert from K to F
     var temp = Math.round(((data.main.temp - 273.15) * 1.8) + 32);
     // convert from m/s to mph
-    var wind = data.wind.speed * 2.237;
+    var wind = (data.wind.speed * 2.237).toFixed(2);
     var humidity = data.main.humidity;
     var condition = data.weather[0].main;
     console.log(temp);
@@ -119,6 +119,10 @@ var getCurrentWeather = function() {
         cityInfoEl.textContent = "No city found.";
         return;
     };
+
+    getPlaylist(data);
+
+    function getPlaylist(data) {
 
     if (condition === "Clear") {
 
@@ -182,6 +186,7 @@ var getCurrentWeather = function() {
     playlist.appendChild(iframe);
 
     }
+  };
 };
 
 searchEl.addEventListener("submit", searchHandler);
