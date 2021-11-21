@@ -92,9 +92,11 @@ var getCurrentWeather = function() {
     var temp = Math.round(((data.main.temp - 273.15) * 1.8) + 32);
     var wind = data.wind.speed;
     var humidity = data.main.humidity;
+    var condition = data.weather.main;
     console.log(temp);
     console.log(wind);
     console.log(humidity);
+    console.log(condition);
     
     var tempEl = document.getElementById("temp");
     tempEl.innerHTML = "Temperature: " + temp + "°F";
@@ -112,16 +114,19 @@ var getCurrentWeather = function() {
         cityInfoEl.textContent = "No city found.";
         return;
     };
-}
 
-function getCityCoordinates(data) {
-    var longitude = data.coord.lon;
-    var latitude = data.coord.lat;
-    console.log(longitude);
-    console.log(latitude);
-    // generate map from coordinates
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    iframe.style.display = "block";
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="380" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
 };
-
 
 searchEl.addEventListener("submit", searchHandler);
 
@@ -129,9 +134,11 @@ function getCityCoordinates(data) {
     var longitude = data.coord.lon;
     var latitude = data.coord.lat;
     console.log(longitude);
-    console.log(latitude);
-    // generate map from coordinates
-};
+    console.log(latitude);    
+}
+
+
+
 
 // function saveSearch() {
 //     var cityList = JSON.parse(localStorage.getItem("City-List"));
@@ -244,4 +251,3 @@ searchEl.addEventListener("submit", searchHandler);
 // var endPoint = "&output=xml&key=""
 // var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl"
 // http://dev.virtualearth.net/REST/v1/Locations?q=seattle&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl
-
