@@ -74,9 +74,21 @@ var getCurrentWeather = function() {
           console.log(response);
           response.json().then(function(data) {
             console.log(data);
-            displayWeather(data)
+            removePlaylist();
             getCityCoordinates(data);
             renderSearchResults(data);
+
+            function removePlaylist() {
+            var playlist = document.getElementById("playlist");
+            var iframe = document.getElementById("iframe");
+            if (iframe !== null) {
+              iframe.remove();
+              displayWeather(data);
+            } else {
+              console.log("No playlist")
+              displayWeather(data);
+              };
+            };
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -87,15 +99,24 @@ var getCurrentWeather = function() {
       });
   };
 
+  
+
   function displayWeather(data) {
     // temp,  wind, humidity
+    // convert from K to F
     var temp = Math.round(((data.main.temp - 273.15) * 1.8) + 32);
-    var wind = data.wind.speed;
+    // convert from m/s to mph
+    var wind = (data.wind.speed * 2.237).toFixed(2);
     var humidity = data.main.humidity;
+    var condition = data.weather[0].main;
     console.log(temp);
     console.log(wind);
     console.log(humidity);
+    console.log(condition);
     
+    var tempEl = document.getElementById("condition");
+    tempEl.innerHTML = condition;
+
     var tempEl = document.getElementById("temp");
     tempEl.innerHTML = "Temperature: " + temp + "°F";
 
@@ -112,16 +133,72 @@ var getCurrentWeather = function() {
         cityInfoEl.textContent = "No city found.";
         return;
     };
-}
 
-function getCityCoordinates(data) {
-    var longitude = data.coord.lon;
-    var latitude = data.coord.lat;
-    console.log(longitude);
-    console.log(latitude);
-    // generate map from coordinates
+
+    displayPlaylist();
+  
+    function displayPlaylist() {   
+    
+    var playlist = document.getElementById("playlist");
+    var iframe = document.createElement('iframe');
+    
+    if (condition === "Clear") {
+    iframe.id = "iframe" 
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX1BzILRveYHb?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="400" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else if (condition === "Clouds") {
+    
+    iframe.id = "iframe"
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DWYoDXiQsd3D2?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="400" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else if (condition === "Rain") {
+    
+    iframe.id = "iframe"
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXbvABJXBIyiY?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="400" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else if (condition === "Snow") {
+    
+    iframe.id = "iframe"
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DX97m5YXQMpCi?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="400" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    } else {
+    
+    iframe.id = "iframe"
+    iframe.src = "https://open.spotify.com/embed/playlist/37i9dQZF1DXdxcBWuJkbcy?utm_source=generator" 
+    iframe.width="100%" 
+    iframe.height="400" 
+    iframe.frameBorder="0" 
+    iframe.allowfullscreen="" 
+    iframe.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    playlist.appendChild(iframe);
+
+    }
+  };
 };
-
 
 searchEl.addEventListener("submit", searchHandler);
 
@@ -129,9 +206,11 @@ function getCityCoordinates(data) {
     var longitude = data.coord.lon;
     var latitude = data.coord.lat;
     console.log(longitude);
-    console.log(latitude);
-    // generate map from coordinates
-};
+    console.log(latitude);    
+}
+
+
+
 
 // function saveSearch() {
 //     var cityList = JSON.parse(localStorage.getItem("City-List"));
@@ -244,4 +323,3 @@ searchEl.addEventListener("submit", searchHandler);
 // var endPoint = "&output=xml&key=""
 // var apiKey = "Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl"
 // http://dev.virtualearth.net/REST/v1/Locations?q=seattle&output=xml&key=Aqy96zlGbO5ltS3p1E6aAKMleaGy0i_tu7rKfSRVU2KNtGBZIgpR87I5x61ct6Bl
-
