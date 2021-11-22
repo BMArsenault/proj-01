@@ -23,7 +23,6 @@
   }
 
 body {
-    background-image: url(./assets/img/maroon.png);
     background-size: cover;
     background-repeat: no-repeat;
     color: var(--secondary);
