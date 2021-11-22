@@ -23,3 +23,5 @@ When traveling, you might not be familiar with local hiking locations. HIKE SPOT
 ### [Live Link] (https://bmarsenault.github.io/proj-01-HikeSpot/)
 ### [Github] (https://github.com/BMArsenault/proj-01-HikeSpot)
 ### [Project Link] (https://github.com/BMArsenault/proj-01/projects/1)
+### ![HikeSpot_Screenshot](https://user-images.githubusercontent.com/89749979/142800121-46aca491-5103-47c4-b67e-e7c58a3bf3dd.png)
+
